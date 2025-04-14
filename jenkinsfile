@@ -5,22 +5,14 @@ pipeline {
         stage('Clone Code') {
             steps {
                 echo 'Cloning the code from GitHub...'
-                // If the repository is private, use credentials
-                git url: 'https://github.com/sohitji725/jenkins-demo.git' // Add credentialsId if needed
+                git url: 'https://github.com/sohitji725/jenkins-demo.git'
             }
         }
 
         stage('List Files') {
             steps {
                 echo 'Listing all files...'
-                sh 'ls -l' // Use 'dir' if running on a Windows agent
-            }
-        }
-
-        stage('Show HTML') {
-            steps {
-                echo 'Printing index.html content...'
-                sh 'cat index.html || echo "index.html file not found"' // Use 'type index.html' on Windows
+                sh 'ls -l' // Use 'dir' if on Windows
             }
         }
     }
