@@ -1,18 +1,25 @@
 pipeline {
-    agent any
+    agent any 
 
     stages {
-        stage('Clone Code') {
+        stage('Build') {
             steps {
-                echo 'Cloning the code from GitHub...'
-                git url: 'https://github.com/sohitji725/jenkins-demo.git'
+                echo 'Building...'
+                // Yahan aap build commands likh sakte hain, jaise:
+                // sh 'mvn clean package' (Java ke liye)
             }
         }
-
-        stage('List Files') {
+        stage('Test') {
             steps {
-                echo 'Listing all files...'
-                sh 'ls -l' // Use 'dir' if on Windows
+                echo 'Testing...'
+                // Yahan aap test commands likh sakte hain, jaise:
+                // sh 'mvn test' (Java ke liye)
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Yahan aap deployment commands likh sakte hain
             }
         }
     }
